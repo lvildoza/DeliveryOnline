@@ -24,4 +24,3 @@ export const getProducts = async (req, res) => {
         res.status(400).json(error.message);
     }
 };
-

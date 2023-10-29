@@ -1,6 +1,5 @@
 const form = document.getElementById('registerForm');
 
-
 form.addEventListener('submit', e => {
     e.preventDefault();
     const data = new FormData(form);
@@ -22,4 +21,4 @@ form.addEventListener('submit', e => {
             window.location.replace('/users/login')
         }
     })
-})
+});

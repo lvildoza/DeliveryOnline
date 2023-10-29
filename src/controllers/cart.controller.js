@@ -13,7 +13,6 @@ export const creatNewCart = async (req, res)=>{
     }
 };
 
-
 //controller get cart by id
 export const searchCart = async (req, res)=>{
     const cid = req.params.cid;
@@ -64,7 +63,6 @@ export const deleteProductFromCart = async (req, res) =>{
     }
 };
 
-
 export const cleanCart = async (req, res) => {
     const cid = req.params.cid;
     try {
@@ -79,4 +77,3 @@ export const cleanCart = async (req, res) => {
         res.status(500).json({ error: 'Error interno del servidor', details: error.message });
     }
 };
-

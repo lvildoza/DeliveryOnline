@@ -21,7 +21,6 @@ export default class UserService {
         return result
     };
 
-
     login = async (email, password, res) => {
             const exists = await userModel.findOne({ email });
             if (!exists) {
@@ -43,7 +42,6 @@ export default class UserService {
             })
     };
 
-
     logout = async (cookieName, res) => {
         res.clearCookie(cookieName);
         return res.send({ message: 'Logout exitoso' });
@@ -63,16 +61,4 @@ export default class UserService {
     
         res.redirect('/users');
     };
-}
-
-
-
-    /*     findByUsername = async (userName) => {
-        let result = await userModel.findOne({ userName });
-        return result;
-    }; */
-
-/*     update = async (filter, value) => {
-        let result = await userModel.updateOne(filter, value);
-        return result;
-    }; */
+};

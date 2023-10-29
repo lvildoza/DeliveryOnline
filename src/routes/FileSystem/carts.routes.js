@@ -2,7 +2,6 @@ import express from 'express';
 import { CartManager } from "../../managers/cartsManager.js";
 import * as CartControler from '../../controllers/cartControler.js';
 
-
 const router = express.Router();
 
 const cartManager = new CartManager();
@@ -13,10 +12,8 @@ router.post('/' , async (req, res) => {
         res.send({ status: 'Success', payload: { id: cartManager.cartId }, message: 'Nuevo carrito creado exitosamente' });
         } catch (error) {
         res.status(500).json({ error: `Error al crear el carrito: ${error.message}` });
-        }
-        
+        }        
     });
-
 
 router.get ('/:cid', async (req, res) => {
     const cid = req.params.cid;
@@ -44,4 +41,3 @@ router.post ('/:cid/products/:pid', async (req, res) => {
 })
 
 export default router;
-

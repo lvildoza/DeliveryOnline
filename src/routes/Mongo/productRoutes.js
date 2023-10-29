@@ -10,5 +10,4 @@ router.post('/', createProduct );
 //Get all with filters
 router.get('/', getProducts);
 
-
 export default router;

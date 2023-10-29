@@ -1,7 +1,6 @@
 const logout = document.getElementById('logout');
 const accessAdmin = document.getElementById('accessAdmin');
 
-
 logout.addEventListener('click', e => {
     e.preventDefault();
     fetch('/api/users/logout', {
@@ -14,7 +13,6 @@ logout.addEventListener('click', e => {
     })
 })
 
-
 //Habilitamos el boton de acceso a la pagina privada solo si el usuario es admin, aunque el boton aparezca por error si el usuario no esta habilitado como admin la pagina privada no se muestra, ya que se valida por la sesion
 
 accessAdmin.value === "admin" ? "" : accessAdmin.style.display = "none";
@@ -23,4 +21,3 @@ accessAdmin.addEventListener('click', e => {
     console.log(accessAdmin.value);
     window.location.replace(`/api/users/private/${accessAdmin.value}`);
 });
-

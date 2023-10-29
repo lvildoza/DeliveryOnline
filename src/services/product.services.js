@@ -1,6 +1,5 @@
 import { ProductModel } from "../models/productModel.js";
 
-
 export default class ProductService {
 
     createProduct = async (product) => {
@@ -22,4 +21,4 @@ export default class ProductService {
             return null;
         }
     };
-}
+};

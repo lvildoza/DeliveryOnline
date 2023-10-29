@@ -14,24 +14,6 @@ router.get('/', async (req, res) => {
 
 });
 
-
-//Devuelve la cantidad de productos segun el query limit
-/* router.get('/query', async (req, res) => {
-    const {limit} = req.query;
-    if (limit == undefined) {
-        const productos = await productManager.getProducts();
-        const prodObjeto = JSON.parse(productos); 
-        res.send({status: 'Success', payload: prodObjeto});
-    }else if(limit > 0){
-        const productos = await productManager.getProducts();
-        const prodObjeto = JSON.parse(productos); 
-        const prodFiltrados = prodObjeto.slice(0, limit);
-        res.send({status: 'Success', payload: prodFiltrados});
-    }else {
-        res.json ({error: 'El monto requerido supera la cantidad de productos'});
-    }
-}) */
-
 router.get('/:pid', async (req, res) => {
     const pid = req.params.pid;
     const id = parseInt(pid);
@@ -74,6 +56,5 @@ router.delete('/:pid', async (req, res) => {
     await productManager.deleteProduct(id);
     res.send({status: 'Success', payload: 'Producto eliminado'});
 })
-
 
 export default router;

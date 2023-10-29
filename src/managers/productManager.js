@@ -1,6 +1,5 @@
 import fs from 'fs'; 
 
-
 class Product{
     constructor (title, description, price, thumbnail, code, stock, category){
         this.title = title;
@@ -25,7 +24,6 @@ export class ProductManager {
         this.#productFilePath = this.#productDirPath + "/Products.json";
         this.#fileSystem = fs; 
     }
-
 
     isCodeDuplicated (code){
         return this.#products.some(product => product.code === code);
@@ -53,7 +51,6 @@ export class ProductManager {
             let prodParaAgregar = {...newProduct, id: id};
             this.#products.push(prodParaAgregar);
             
-
             await this.#fileSystem.promises.writeFile(this.#productFilePath, JSON.stringify(this.#products, null, 2));
             this.emit('change', this.#products);
         }
@@ -165,4 +162,4 @@ export class ProductManager {
 
     }
 
-}
+};

@@ -1,7 +1,6 @@
 import { CartModel } from "../models/cartModel.js";
 import { ProductModel } from "../models/productModel.js";
 
-
 export default class CartServices {
     
     //services create cart
@@ -69,4 +68,4 @@ export default class CartServices {
         }
     };
 
-}
+};

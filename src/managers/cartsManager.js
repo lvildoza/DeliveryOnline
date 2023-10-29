@@ -7,7 +7,6 @@ export class CartManager{
     #cartFilePath;
     #fileSystem;
 
-
     constructor(){
         this.#carts = new Array();
         this.#cartDirPath = "./Data";
@@ -16,12 +15,9 @@ export class CartManager{
         this.#fileSystem = fs; 
     }
 
-
     isCodeDuplicated (id){
         return this.#carts.some(cart => cart.id === id);
-    } 
-
-
+    }
 
     createCart = async () => {
         let id = this.#carts.length + 1;
@@ -124,110 +120,4 @@ export class CartManager{
                 throw Error(`Error al agregar el producto al carrito: ${id}, detalle del error: ${error}`);
             }
         }
-    }
-    
-/*     getProducts = async () => {
-        try{
-            //creamos el directorio si no existe
-            await this.#fileSystem.promises.mkdir(this.#productDirPath, {recursive: true});
-            
-            //verificamos si el archivo existe
-            if (!this.#fileSystem.existsSync(this.#productFilePath)){
-                await this.#fileSystem.promises.writeFile(this.#productFilePath, '[]');
-            }
-            let productsFile = await this.#fileSystem.promises.readFile(this.#productFilePath, 'utf-8');
-            console.log(productsFile); 
-            this.#products = productsFile;    
-            return this.#products;
-        }
-        catch (error){
-            console.error(`Error al obtener los productos: ${error}`);
-            throw Error(`Error al obtener los productos: ${error}`);
-        }
-    }
-
-    getProductById = async (id) => {
-        try{
-            //creamos el directorio si no existe
-            await this.#fileSystem.promises.mkdir(this.#productDirPath, {recursive: true});
-            
-            //verificamos si el archivo existe
-            if (!this.#fileSystem.existsSync(this.#productFilePath)){
-                await this.#fileSystem.promises.writeFile(this.#productFilePath, '[]');
-            }
-    
-            let productsFile = await this.#fileSystem.promises.readFile(this.#productFilePath, 'utf-8');
-    
-            this.#products = JSON.parse(productsFile);
-    
-            let product = this.#products.find(product => product.id === id);
-            if (product){
-                console.log(`Producto encontrado:`);
-                console.log(product);
-                return product;
-            }
-            
-        }
-        catch (error){
-            console.error(`Error al obtener el producto con id: ${id}, detalle del error: ${error}`);
-        }
-    }
-
-    updateProduct = async (id, producto ) => {
-        try{
-            //creamos el directorio si no existe
-            await this.#fileSystem.promises.mkdir(this.#productDirPath, {recursive: true});
-            
-            //verificamos si el archivo existe
-            if (!this.#fileSystem.existsSync(this.#productFilePath)){
-                await this.#fileSystem.promises.writeFile(this.#productFilePath, '[]');
-            }
-    
-            let productsFile = await this.#fileSystem.promises.readFile(this.#productFilePath, 'utf-8');
-    
-            this.#products = JSON.parse(productsFile);
-    
-            let product = this.#products.find(product => product.id === id);
-            
-                Object.assign(product, producto);
-                await this.#fileSystem.promises.writeFile(this.#productFilePath, JSON.stringify(this.#products, null, 2));
-
-                
-        } catch (error){
-            console.error(`Error al actualizar el producto con id: ${id}, detalle del error: ${error}`);
-        }
-    }
-
-    deleteProduct = async (id) => {
-        try{
-            //creamos el directorio si no existe
-            await this.#fileSystem.promises.mkdir(this.#productDirPath, {recursive: true});
-            
-            //verificamos si el archivo existe
-            if (!this.#fileSystem.existsSync(this.#productFilePath)){
-                await this.#fileSystem.promises.writeFile(this.#productFilePath, '[]');
-            }
-    
-            let productsFile = await this.#fileSystem.promises.readFile(this.#productFilePath, 'utf-8');
-    
-            this.#products = JSON.parse(productsFile);
-    
-            let product = this.#products.find(product => product.id === id);
-            
-            if (product){
-                this.#products = this.#products.filter(product => product.id !== id);
-                await this.#fileSystem.promises.writeFile(this.#productFilePath, JSON.stringify(this.#products, null, 2));
-                console.log(`Producto eliminado:`);
-                console.log(product);
-                console.log(this.#products);
-            }
-        
-        }catch (error){
-            console.error(`Error al eliminar el producto con id: ${id}, detalle del error: ${error}`);
-        }
-
-    } */
-
-
-
-
+};

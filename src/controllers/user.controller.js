@@ -28,7 +28,6 @@ export const loginController = async (req, res) => {
     }
 }
 
-
 //controler login github
 export const gitHubCallbackController = async (req, res) => {
     const user = req.user;
