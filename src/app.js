@@ -30,7 +30,7 @@ import initializePassport from "./config/passport.config.js";
 const app = express();
 
 //Cookies
-app.use(cookieParser("CoderS3cr3tC0d3"));
+app.use(cookieParser("AppS3cr3tC0d3"));
 
 //Middlewares
 app.use(express.json());
@@ -53,7 +53,7 @@ app.use(
   session({
     mongoUrl: configEnv.mongoUrl,
     ttl: 60,
-    secret: "coderS3cr3t",
+    secret: "AppS3cr3t",
     resave: true, //guarda en memoria
     saveUninitialized: false,
     //lo guarda apenas se crea
@@ -82,6 +82,7 @@ const mongoInstance = async () => {
 };
 mongoInstance();
 
+
 app.get("/", async (req, res) => {
   let allProducts = await productManager.getProducts();
   const products = JSON.parse(allProducts);
@@ -91,6 +92,7 @@ app.get("/", async (req, res) => {
     products,
   });
 });
+
 
 export const socketServer = new Server(httpServer);
 
